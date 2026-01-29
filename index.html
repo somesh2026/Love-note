@@ -2,6 +2,7 @@
 <html>
 <head>
 <title>For Ayushi ❤️</title>
+
 <style>
 body {
   background: black;
@@ -10,38 +11,94 @@ body {
   text-align: center;
   padding-top: 50px;
 }
+
 h1 {
-  font-size: 30px;
+  font-size: 32px;
 }
+
 p {
   font-size: 18px;
+  opacity: 0;
 }
+
 .heart {
   color: red;
   font-size: 32px;
+  opacity: 0;
 }
+
 .footer {
   margin-top: 40px;
   font-size: 16px;
-  color: #ffffff;
+  color: white;
+  opacity: 0;
+}
+
+button {
+  margin-top: 30px;
+  padding: 10px 20px;
+  background: #00ffcc;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  display: none;
+}
+
+#secret {
+  margin-top: 20px;
+  color: pink;
+  font-size: 18px;
+  display: none;
 }
 </style>
 </head>
 
 <body>
+
 <h1>Ayushi ❤️</h1>
 
-<p>You are not just someone I love,</p>
-<p>you are someone I choose every day 🫶</p>
-<p>I am always with you.</p>
-<p>I love you 💖</p>
+<p class="line">You are not just someone I love,</p>
+<p class="line">you are someone I choose every day 🫶</p>
+<p class="line">I am always with you.</p>
+<p class="line">I love you 💖</p>
 
 <p class="heart">❤️ ❤️ ❤️</p>
+
+<button onclick="showSecret()">Click me Ayushi 💖</button>
+
+<div id="secret">
+  No matter what happens,<br>
+  I will always choose you ❤️<br><br>
+  — Somesh
+</div>
 
 <div class="footer">
 — Always yours,<br>
 Somesh
 </div>
+
+<script>
+let i = 0;
+let lines = document.querySelectorAll(".line");
+
+function showLines() {
+  if (i < lines.length) {
+    lines[i].style.opacity = 1;
+    i++;
+    setTimeout(showLines, 1000);
+  } else {
+    document.querySelector(".heart").style.opacity = 1;
+    document.querySelector(".footer").style.opacity = 1;
+    document.querySelector("button").style.display = "inline-block";
+  }
+}
+
+showLines();
+
+function showSecret() {
+  document.getElementById("secret").style.display = "block";
+}
+</script>
 
 </body>
 </html>
