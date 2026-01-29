@@ -61,64 +61,78 @@
 
 <body>
 
-  <!-- Screen 1 -->
-  <div class="screen active">
-    <h1>Hi Ayushi 🌹</h1>
-    <p>I have something very special for you…</p>
-    <button onclick="next()">Next 💖</button>
-  </div>
+<!-- 🔐 PASSWORD -->
+<script>
+  let pass = prompt("Password dalo 💖");
 
-  <!-- Screen 2 -->
-  <div class="screen">
-    <p>You are not just someone I love,</p>
-    <p>you are someone I choose every day 💫</p>
-    <button onclick="next()">Next ✨</button>
-  </div>
+  if(pass !== "21/12"){
+    alert(
+      "Ye kya baat huyi 😒\n" +
+      "Apko hamara 1st meet day yaad nahi?\n\n" +
+      "Chalo 10 baar uthak-baithak karo 😂"
+    );
+    document.body.innerHTML = "";
+  }
+</script>
 
-  <!-- Screen 3 -->
-  <div class="screen">
-    <p>I am always with you.</p>
-    <p>I love you 💕</p>
-    <button onclick="next()">Next 🌹</button>
-  </div>
+<!-- Screen 1 -->
+<div class="screen active">
+  <h1>Hi Ayushi 🌹</h1>
+  <p>I have something very special for you…</p>
+  <button onclick="next()">Next 💖</button>
+</div>
 
-  <!-- Screen 4 (Rose Day Message) -->
-  <div class="screen">
-    <h2>🌹 Happy Rose Day 🌹</h2>
-    <p>
-      This rose is not just a flower,<br>
-      it is my promise to you.<br><br>
-      No matter what happens,<br>
-      I will always choose you ❤️
-    </p>
-    <p>— Somesh</p>
-    <button onclick="next()">Next 🌹</button>
-  </div>
+<!-- Screen 2 -->
+<div class="screen">
+  <p>You are not just someone I love,</p>
+  <p>you are someone I choose every day 💫</p>
+  <button onclick="next()">Next ✨</button>
+</div>
 
-  <!-- Screen 5 (Rose Tap Surprise) -->
-  <div class="screen">
-    <h2>Rose Day for You 🌹</h2>
-    <p>Tap the rose</p>
+<!-- Screen 3 -->
+<div class="screen">
+  <p>I am always with you.</p>
+  <p>I love you 💕</p>
+  <button onclick="next()">Next 🌹</button>
+</div>
 
-    <img src="rose.png" id="rose" onclick="showPic()">
-    <br>
-    <img src="myrose.jpg" id="myPic">
-  </div>
+<!-- Screen 4 -->
+<div class="screen">
+  <h2>🌹 Happy Rose Day 🌹</h2>
+  <p>
+    This rose is not just a flower,<br>
+    it is my promise to you.<br><br>
+    No matter what happens,<br>
+    I will always choose you ❤️
+  </p>
+  <p>— Somesh</p>
+  <button onclick="next()">Next 🌹</button>
+</div>
 
-  <script>
-    let current = 0;
-    const screens = document.querySelectorAll('.screen');
+<!-- Screen 5 -->
+<div class="screen">
+  <h2>Rose Day for You 🌹</h2>
+  <p>Tap the rose</p>
 
-    function next(){
-      screens[current].classList.remove('active');
-      current++;
-      screens[current].classList.add('active');
-    }
+  <img src="rose.png" id="rose" onclick="showPic()">
+  <br>
+  <img src="myrose.jpg" id="myPic">
+</div>
 
-    function showPic(){
-      document.getElementById("myPic").style.display = "block";
-    }
-  </script>
+<script>
+  let current = 0;
+  const screens = document.querySelectorAll('.screen');
+
+  function next(){
+    screens[current].classList.remove('active');
+    current++;
+    screens[current].classList.add('active');
+  }
+
+  function showPic(){
+    document.getElementById("myPic").style.display = "block";
+  }
+</script>
 
 </body>
 </html>
