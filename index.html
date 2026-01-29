@@ -1,112 +1,124 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<title>For Ayushi 💖</title>
+  <meta charset="UTF-8">
+  <title>For Ayushi 🌹</title>
 
-<!-- Google Font -->
-<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    body{
+      margin:0;
+      height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      background:linear-gradient(135deg,#ff5f6d,#ffc371);
+      font-family:'Segoe UI',sans-serif;
+      color:white;
+      text-align:center;
+    }
 
-<style>
-body {
-  margin: 0;
-  height: 100vh;
-  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: 'Poppins', sans-serif;
-  overflow: hidden;
-}
+    .screen{
+      display:none;
+      animation:fade 0.6s ease;
+    }
 
-.screen {
-  display: none;
-  text-align: center;
-  padding: 20px;
-  animation: fade 1s ease;
-}
+    .active{
+      display:block;
+    }
 
-.screen.active {
-  display: block;
-}
+    button{
+      margin-top:25px;
+      padding:12px 28px;
+      border:none;
+      border-radius:25px;
+      background:white;
+      color:#ff5f6d;
+      font-size:16px;
+      font-weight:bold;
+      cursor:pointer;
+    }
 
-h1 {
-  font-family: 'Pacifico', cursive;
-  font-size: 36px;
-  color: #fff;
-}
+    #rose{
+      width:120px;
+      margin-top:20px;
+      cursor:pointer;
+    }
 
-p {
-  font-size: 18px;
-  color: #fff;
-  margin-top: 15px;
-}
+    #myPic{
+      display:none;
+      width:220px;
+      margin-top:20px;
+      border-radius:15px;
+      animation:fade 0.8s ease;
+    }
 
-button {
-  margin-top: 30px;
-  padding: 12px 24px;
-  border: none;
-  border-radius: 25px;
-  background: #fff;
-  color: #ff5e78;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-.heart {
-  font-size: 28px;
-  animation: pulse 1.2s infinite;
-}
-
-@keyframes pulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.3); }
-  100% { transform: scale(1); }
-}
-
-@keyframes fade {
-  from { opacity: 0; transform: scale(0.95); }
-  to { opacity: 1; transform: scale(1); }
-}
-</style>
+    @keyframes fade{
+      from{opacity:0;transform:scale(0.9);}
+      to{opacity:1;transform:scale(1);}
+    }
+  </style>
 </head>
 
 <body>
 
-<!-- Screen 1 -->
-<div class="screen active">
-  <h1>Hi Ayushi 💖</h1>
-  <p>I have something special for you…</p>
-  <button onclick="next()">Next 💕</button>
-</div>
+  <!-- Screen 1 -->
+  <div class="screen active">
+    <h1>Hi Ayushi 🌹</h1>
+    <p>I have something very special for you…</p>
+    <button onclick="next()">Next 💖</button>
+  </div>
 
-<!-- Screen 2 -->
-<div class="screen">
-  <p>You are not just someone I love,</p>
-  <p>you are someone I choose every day 🤍</p>
-  <button onclick="next()">Next 💫</button>
-</div>
+  <!-- Screen 2 -->
+  <div class="screen">
+    <p>You are not just someone I love,</p>
+    <p>you are someone I choose every day 💫</p>
+    <button onclick="next()">Next ✨</button>
+  </div>
 
-<!-- Screen 3 -->
-<div class="screen">
-  <p>I am always with you.</p>
-  <p>I love you 💗</p>
-  <div class="heart">❤️ ❤️ ❤️</div>
-  <button onclick="next()">Next 🥹</button>
-</div>
+  <!-- Screen 3 -->
+  <div class="screen">
+    <p>I am always with you.</p>
+    <p>I love you 💕</p>
+    <button onclick="next()">Next 🌹</button>
+  </div>
 
-<!-- Screen 4 : Rose Day -->
-<div class="screen">
-  <h1>🌹 Happy Rose Day, Ayushi 🌹</h1>
+  <!-- Screen 4 (Rose Day Message) -->
+  <div class="screen">
+    <h2>🌹 Happy Rose Day 🌹</h2>
+    <p>
+      This rose is not just a flower,<br>
+      it is my promise to you.<br><br>
+      No matter what happens,<br>
+      I will always choose you ❤️
+    </p>
+    <p>— Somesh</p>
+    <button onclick="next()">Next 🌹</button>
+  </div>
 
-  <p>Ek gulab ho tum meri zindagi ka,<br>
-  jo har din meri duniya mehka deta hai.</p>
+  <!-- Screen 5 (Rose Tap Surprise) -->
+  <div class="screen">
+    <h2>Rose Day for You 🌹</h2>
+    <p>Tap the rose</p>
 
-  <p>Tum sirf ek din ka gift nahi,<br>
-  tum har din ki khushi ho mere liye.</p>
+    <img src="rose.png" id="rose" onclick="showPic()">
+    <br>
+    <img src="myrose.jpg" id="myPic">
+  </div>
 
-  <p>Aaj Rose Day hai,<br>
-  par mera pyaar har din tumhare naam hai ❤️</p>
+  <script>
+    let current = 0;
+    const screens = document.querySelectorAll('.screen');
 
-  <p>— Somesh</p>
-</div>
+    function next(){
+      screens[current].classList.remove('active');
+      current++;
+      screens[current].classList.add('active');
+    }
+
+    function showPic(){
+      document.getElementById("myPic").style.display = "block";
+    }
+  </script>
+
+</body>
+</html>
