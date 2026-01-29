@@ -1,102 +1,115 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>For Ayushi ❤️</title>
+<meta charset="UTF-8">
+<title>For Ayushi 💖</title>
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
 
 <style>
 body {
-  background: black;
-  color: #00ffcc;
-  font-family: monospace;
+  margin: 0;
+  height: 100vh;
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Poppins', sans-serif;
+  overflow: hidden;
+}
+
+.screen {
+  display: none;
   text-align: center;
-  padding-top: 50px;
+  padding: 20px;
+  animation: fade 1s ease;
+}
+
+.screen.active {
+  display: block;
 }
 
 h1 {
-  font-size: 32px;
+  font-family: 'Pacifico', cursive;
+  font-size: 36px;
+  color: #fff;
 }
 
 p {
   font-size: 18px;
-  opacity: 0;
-}
-
-.heart {
-  color: red;
-  font-size: 32px;
-  opacity: 0;
-}
-
-.footer {
-  margin-top: 40px;
-  font-size: 16px;
-  color: white;
-  opacity: 0;
+  color: #fff;
+  margin-top: 15px;
 }
 
 button {
   margin-top: 30px;
-  padding: 10px 20px;
-  background: #00ffcc;
+  padding: 12px 24px;
   border: none;
+  border-radius: 25px;
+  background: #fff;
+  color: #ff5e78;
   font-size: 16px;
   cursor: pointer;
-  display: none;
 }
 
-#secret {
-  margin-top: 20px;
-  color: pink;
-  font-size: 18px;
-  display: none;
+.heart {
+  font-size: 28px;
+  animation: pulse 1.2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.3); }
+  100% { transform: scale(1); }
+}
+
+@keyframes fade {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
 }
 </style>
 </head>
 
 <body>
 
-<h1>Ayushi ❤️</h1>
-
-<p class="line">You are not just someone I love,</p>
-<p class="line">you are someone I choose every day 🫶</p>
-<p class="line">I am always with you.</p>
-<p class="line">I love you 💖</p>
-
-<p class="heart">❤️ ❤️ ❤️</p>
-
-<button onclick="showSecret()">Click me Ayushi 💖</button>
-
-<div id="secret">
-  No matter what happens,<br>
-  I will always choose you ❤️<br><br>
-  — Somesh
+<!-- Screen 1 -->
+<div class="screen active">
+  <h1>Hi Ayushi 💖</h1>
+  <p>I have something special for you…</p>
+  <button onclick="next()">Next 💕</button>
 </div>
 
-<div class="footer">
-— Always yours,<br>
-Somesh
+<!-- Screen 2 -->
+<div class="screen">
+  <p>You are not just someone I love,</p>
+  <p>you are someone I choose every day 🤍</p>
+  <button onclick="next()">Next 💫</button>
+</div>
+
+<!-- Screen 3 -->
+<div class="screen">
+  <p>I am always with you.</p>
+  <p>I love you 💗</p>
+  <div class="heart">❤️ ❤️ ❤️</div>
+  <button onclick="next()">Next 🥹</button>
+</div>
+
+<!-- Screen 4 -->
+<div class="screen">
+  <h1>Always yours 💞</h1>
+  <p>No matter what happens,<br>I will always choose you ❤️</p>
+  <p>— Somesh</p>
 </div>
 
 <script>
-let i = 0;
-let lines = document.querySelectorAll(".line");
+let current = 0;
+const screens = document.querySelectorAll('.screen');
 
-function showLines() {
-  if (i < lines.length) {
-    lines[i].style.opacity = 1;
-    i++;
-    setTimeout(showLines, 1000);
-  } else {
-    document.querySelector(".heart").style.opacity = 1;
-    document.querySelector(".footer").style.opacity = 1;
-    document.querySelector("button").style.display = "inline-block";
-  }
-}
-
-showLines();
-
-function showSecret() {
-  document.getElementById("secret").style.display = "block";
+function next() {
+  screens[current].classList.remove('active');
+  current++;
+  screens[current].classList.add('active');
 }
 </script>
 
